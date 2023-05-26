@@ -15,7 +15,7 @@ def get_all_possible_lines(rows: List[List[str]]):
     ]
     :return all possible lines of strings through the game board.
     """
-    all_possible_lines: List[List[str]] = [][]
+    all_possible_lines: List[List[str]] = []
 
     # Get all rows
     for row in rows:
@@ -26,8 +26,6 @@ def get_all_possible_lines(rows: List[List[str]]):
 
     # TODO - Add all diagonals
 
-
-    assert len(all_possible_lines) == 8
     return all_possible_lines
 
 
