@@ -26,6 +26,7 @@ def get_all_possible_lines(rows: List[List[str]]):
 
     # TODO - Add all diagonals
 
+
     return all_possible_lines
 
 

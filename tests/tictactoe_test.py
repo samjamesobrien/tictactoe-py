@@ -30,9 +30,9 @@ class TicTacToeTest(unittest.TestCase):
 
         output = get_all_possible_lines(input)
 
-        assert len(output) == 8
+        assert 8 == len(output)
         for i in range(0, 8):
-            assert expected[i] == output[i]
+            assert output[i] == expected[i]
 
 
 if __name__ == '__main__':
