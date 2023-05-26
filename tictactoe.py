@@ -1,6 +1,19 @@
 from typing import List
 
-def play():
+new_game = [
+    ["", "", ""],
+    ["", "", ""],
+    ["", "", ""]
+]
+
+def submit_play(player: str, x: int, y: int):
+    """
+    Add a play to the game in progress, the player's letter and the target on the board
+    :param player: 'x' or 'o'
+    :param x: index across
+    :param y: index down
+    :return: the current game state, a winner, a draw, or in progress
+    """
     pass
 
 
@@ -31,4 +44,4 @@ def get_all_possible_lines(rows: List[List[str]]):
 
 
 if __name__ == '__main__':
-    play()
+    pass

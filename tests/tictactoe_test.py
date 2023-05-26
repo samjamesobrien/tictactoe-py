@@ -34,6 +34,10 @@ class TicTacToeTest(unittest.TestCase):
         for i in range(0, 8):
             assert output[i] == expected[i]
 
+    def test_check_game_state(self):
+        pass
+
+    def test_submit_play(self):
 
 if __name__ == '__main__':
     unittest.main()
