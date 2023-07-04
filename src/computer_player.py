@@ -38,14 +38,12 @@ class ComputerPlayer:
                     return x, y
         return None, None
 
-    @staticmethod
-    def _get_blocking_move(game: Game):
+    def _get_blocking_move(self, game: Game):
         # TODO - is there a move where we can block the other player?
 
         return None, None
 
-    @staticmethod
-    def _get_winning_move(game: Game):
+    def _get_winning_move(self, game: Game):
         # TODO - is there a move where we can win?
 
         return None, None

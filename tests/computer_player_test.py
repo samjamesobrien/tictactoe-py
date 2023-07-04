@@ -11,6 +11,7 @@ class ComputerPlayerTest(unittest.TestCase):
 
     def setUp(self):
         self.game = Game()
+        self.computer_player = ComputerPlayer('x')
 
     def test_get_first_available_move(self):
         # Top left
@@ -20,14 +21,34 @@ class ComputerPlayerTest(unittest.TestCase):
         self.game.state = [
             ['x', 'o', 'x'],
             ['', '', 'o'],
-            ['x', '', ''],
+            ['x', '', '']
         ]
         assert ComputerPlayer._get_first_available_move(self.game) == (0, 1)
 
-        # None
+        # No space left
         self.game.state = [
             ['x', 'o', 'x'],
             ['o', 'x', 'o'],
-            ['x', 'o', 'x'],
+            ['x', 'o', 'x']
         ]
         assert ComputerPlayer._get_first_available_move(self.game) == (None, None)
+
+    def test_get_blocking_move(self):
+        # No blocking move
+        assert self.computer_player._get_blocking_move(self.game) == (None, None)
+
+        # X in 1, 0 blocks O
+        self.game.state = [
+            ['o', '', 'o'],
+            ['x', '', 'x'],
+            ['', '', '']
+        ]
+        assert self.computer_player._get_blocking_move(self.game) == (1, 0)
+
+        # No space left
+        self.game.state = [
+            ['x', 'o', 'x'],
+            ['o', 'x', 'o'],
+            ['x', 'o', 'x']
+        ]
+        assert self.computer_player._get_blocking_move(self.game) == (None, None)
