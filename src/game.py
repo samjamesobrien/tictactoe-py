@@ -25,7 +25,7 @@ class Game:
             raise Exception(f"{player} is not a valid play, must be 'x' or 'o'")
 
         if self.state[y][x] != "":
-            raise Exception(f"{x},{y} is not empty, contains: {self.state[y][x]}!")
+            raise Exception(f"{x},{y} is not empty, contains: '{self.state[y][x]}'!")
 
         self.state[y][x] = player
 

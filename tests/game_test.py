@@ -2,6 +2,8 @@ import os
 import sys
 import unittest
 
+import pytest
+
 sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../src"))
 from game import Game
 
@@ -64,4 +66,20 @@ class GameTest(unittest.TestCase):
         assert self.game._get_winner() == 'o'
 
     def test_submit_play(self):
-        pass
+        assert self.game.state[0][0] == ""
+
+        # # X plays a valid move
+        # self.game.submit_play('x', 0, 0)
+        # assert self.game.state[0][0] == "x"
+
+        # Y plays a move...
+        with pytest.raises(Exception) as e_info:
+            self.game.submit_play('y', 1, 1)
+        assert self.game.state[1][1] == ""
+        assert e_info.value.args[0] == "y is not a valid play, must be 'x' or 'o'"
+
+        # O tries to take X's move...
+        with pytest.raises(Exception) as e_info:
+            self.game.submit_play('o', 0, 0)
+        assert self.game.state[0][0] == ""
+        assert e_info.value.args[0] == "0,0 is not empty, contains: 'x'!"
