@@ -31,21 +31,21 @@ class ComputerPlayer:
             game.submit_play(self.my_letter, x, y)
 
     @staticmethod
-    def _get_first_available_move(game: Game) -> Optional[int, int]:
+    def _get_first_available_move(game: Game):
         for x in range(0, 2):
             for y in range(0, 2):
                 if game.state[y][x] == "":
                     return x, y
-        return None
+        return None, None
 
     @staticmethod
-    def _get_blocking_move(game: Game) -> Optional[int, int]:
+    def _get_blocking_move(game: Game):
         # TODO - is there a move where we can block the other player?
 
-        return None
+        return None, None
 
     @staticmethod
-    def _get_winning_move(game: Game) -> Optional[int, int]:
+    def _get_winning_move(game: Game):
         # TODO - is there a move where we can win?
 
-        return None
+        return None, None
