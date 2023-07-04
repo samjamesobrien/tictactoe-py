@@ -1,17 +1,17 @@
 import os, sys
 import unittest
 
-sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
-from tictactoe import *
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../src"))
+from game import Game
 
 
-class TicTacToeTest(unittest.TestCase):
+class GameTest(unittest.TestCase):
 
     def setUp(self):
-        pass
+        self.game = Game()
 
     def test_get_all_possible_lines(self):
-        input = [
+        self.game.state = [
             ["1", "2", "3"],
             ["4", "5", "6"],
             ["7", "8", "9"]
@@ -28,16 +28,14 @@ class TicTacToeTest(unittest.TestCase):
             ["7", "5", "3"],
         ]
 
-        output = get_all_possible_lines(input)
+        output = self.game._get_all_possible_lines(input)
 
         assert len(output) == 8
         for i in range(0, 8):
             assert output[i] == expected[i]
 
-    def test_check_game_state(self):
+    def test_get_winner(self):
         pass
 
     def test_submit_play(self):
-
-if __name__ == '__main__':
-    unittest.main()
+        pass
