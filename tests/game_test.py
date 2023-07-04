@@ -1,4 +1,5 @@
-import os, sys
+import os
+import sys
 import unittest
 
 sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../src"))
@@ -28,7 +29,7 @@ class GameTest(unittest.TestCase):
             ["7", "5", "3"],
         ]
 
-        output = self.game._get_all_possible_lines(input)
+        output = self.game._get_all_possible_lines()
 
         assert len(output) == 8
         for i in range(0, 8):
