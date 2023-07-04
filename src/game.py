@@ -39,7 +39,7 @@ class Game:
         all_possible_lines = self._get_all_possible_lines()
 
         #
-        # TODO - Evaluate game state & return a winner
+        # TODO - Evaluate all lines & return a winner if present
         #
 
         return
