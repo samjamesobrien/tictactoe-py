@@ -81,5 +81,5 @@ class GameTest(unittest.TestCase):
         # O tries to take X's move...
         with pytest.raises(Exception) as e_info:
             self.game.submit_play('o', 0, 0)
-        assert self.game.state[0][0] == ""
+        assert self.game.state[0][0] == "x"
         assert e_info.value.args[0] == "0,0 is not empty, contains: 'x'!"
