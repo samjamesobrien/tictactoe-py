@@ -32,6 +32,9 @@ class ComputerPlayer:
 
     @staticmethod
     def _get_first_available_move(game: Game):
+        """
+        Return any move available to the player in the format X, Y
+        """
         for x in range(0, 2):
             for y in range(0, 2):
                 if game.state[y][x] == "":
@@ -39,11 +42,17 @@ class ComputerPlayer:
         return None, None
 
     def _get_blocking_move(self, game: Game):
+        """
+        Return a move that blocks the other player from winning.
+        """
         # TODO - is there a move where we can block the other player?
 
         return None, None
 
     def _get_winning_move(self, game: Game):
+        """
+        Return a move that wins the game.
+        """
         # TODO - is there a move where we can win?
 
         return None, None
