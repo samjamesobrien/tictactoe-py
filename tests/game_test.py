@@ -68,9 +68,9 @@ class GameTest(unittest.TestCase):
     def test_submit_play(self):
         assert self.game.state[0][0] == ""
 
-        # # X plays a valid move
-        # self.game.submit_play('x', 0, 0)
-        # assert self.game.state[0][0] == "x"
+        # X plays a valid move
+        self.game.submit_play('x', 0, 0)
+        assert self.game.state[0][0] == "x"
 
         # Y plays a move...
         with pytest.raises(Exception) as e_info:
