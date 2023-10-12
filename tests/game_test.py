@@ -33,9 +33,7 @@ class GameTest(unittest.TestCase):
 
         output = self.game._get_all_possible_lines()
 
-        assert len(output) == 8
-        for i in range(0, 8):
-            assert output[i] == expected[i]
+        assert output == expected
 
     def test_get_winner(self):
         # No winner
@@ -70,16 +68,31 @@ class GameTest(unittest.TestCase):
 
         # X plays a valid move
         self.game.submit_play('x', 0, 0)
-        assert self.game.state[0][0] == "x"
+        assert self.game.state[0][0] == 'x'
+        assert self.game.next_player == 'o'
+
+        # O plays a valid move
+        self.game.submit_play('o', 1, 1)
+        assert self.game.state[1][1] == 'o'
+        assert self.game.next_player == 'x'
+
+        # O tries to play again...
+        with pytest.raises(Exception) as e_info:
+            self.game.submit_play('o', 1, 0)
+        assert self.game.state[0][1] == ""
+        assert self.game.next_player == 'x'
+        assert e_info.value.args[0] == "It is not o's turn, x is next!"
+
+        # X tries to take O's placed tile...
+        with pytest.raises(Exception) as e_info:
+            self.game.submit_play('x', 1, 1)
+        assert self.game.state[1][1] == "o"
+        assert self.game.next_player == 'x'
+        assert e_info.value.args[0] == "1,1 is not empty, contains: 'o'!"
 
         # Y plays a move...
         with pytest.raises(Exception) as e_info:
-            self.game.submit_play('y', 1, 1)
-        assert self.game.state[1][1] == ""
+            self.game.submit_play('y', 2, 2)
+        assert self.game.state[2][2] == ""
+        assert self.game.next_player == 'x'
         assert e_info.value.args[0] == "y is not a valid play, must be 'x' or 'o'"
-
-        # O tries to take X's move...
-        with pytest.raises(Exception) as e_info:
-            self.game.submit_play('o', 0, 0)
-        assert self.game.state[0][0] == "x"
-        assert e_info.value.args[0] == "0,0 is not empty, contains: 'x'!"

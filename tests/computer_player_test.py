@@ -52,3 +52,23 @@ class ComputerPlayerTest(unittest.TestCase):
             ['x', 'o', 'x']
         ]
         assert self.computer_player._get_blocking_move(self.game) == (None, None)
+
+    def test_get_winning_move(self):
+        # No blocking move
+        assert self.computer_player._get_blocking_move(self.game) == (None, None)
+
+        # X in 1, 0 blocks O
+        self.game.state = [
+            ['o', '', 'o'],
+            ['x', '', 'x'],
+            ['', '', '']
+        ]
+        assert self.computer_player._get_blocking_move(self.game) == (1, 0)
+
+        # No space left
+        self.game.state = [
+            ['x', 'o', 'x'],
+            ['o', 'x', 'o'],
+            ['x', 'o', 'x']
+        ]
+        assert self.computer_player._get_blocking_move(self.game) == (None, None)
