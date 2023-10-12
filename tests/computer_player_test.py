@@ -11,7 +11,7 @@ class ComputerPlayerTest(unittest.TestCase):
 
     def setUp(self):
         self.game = Game()
-        self.computer_player = ComputerPlayer('x')
+        self.computer_player = ComputerPlayer()
 
     def test_get_first_available_move(self):
         # Top left

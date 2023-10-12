@@ -17,3 +17,4 @@ We have a [ComputerPlayer](/src/computer_player.py) and associated [ComputerPlay
 
 1. Implement the `_get_blocking_move` method
 2. Implement the `_get_winning_move` method
+3. How would you improve the `play` method?

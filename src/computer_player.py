@@ -1,34 +1,33 @@
 import sys
 import os
-from typing import Optional
 
 sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__))))
 from game import Game
 
 
 class ComputerPlayer:
-    """
-    A Player who makes a play on the game.
-    """
 
-    def __init__(self, my_letter: str):
-        self.my_letter = my_letter
+    @staticmethod
+    def play(game: Game):
+        """
+        For the given Game, choose a next move for the player and play it.
+        :param game: the game in progress.
+        """
 
-    def play(self, game: Game):
         # Try to block
-        x, y = self._get_blocking_move(game)
+        x, y = ComputerPlayer._get_blocking_move(game)
         if x and y:
-            game.submit_play(self.my_letter, x, y)
+            game.submit_play(game.next_player, x, y)
 
         # try to win
-        x, y = self._get_winning_move(game)
+        x, y = ComputerPlayer._get_winning_move(game)
         if x and y:
-            game.submit_play(self.my_letter, x, y)
+            game.submit_play(game.next_player, x, y)
 
         # take any move
-        x, y = self._get_first_available_move(game)
+        x, y = ComputerPlayer._get_first_available_move(game)
         if x and y:
-            game.submit_play(self.my_letter, x, y)
+            game.submit_play(game.next_player, x, y)
 
     @staticmethod
     def _get_first_available_move(game: Game):
@@ -45,6 +44,8 @@ class ComputerPlayer:
         """
         Return a move that blocks the other player from winning.
         """
+        next_player = game.next_player
+
         # TODO - is there a move where we can block the other player?
 
         return None, None
@@ -53,6 +54,8 @@ class ComputerPlayer:
         """
         Return a move that wins the game.
         """
+        next_player = game.next_player
+
         # TODO - is there a move where we can win?
 
         return None, None

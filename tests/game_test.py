@@ -36,8 +36,16 @@ class GameTest(unittest.TestCase):
         assert output == expected
 
     def test_get_winner(self):
-        # No winner
+        # No winner & game in progress
         assert self.game._get_winner() is None
+
+        # No winner & draw
+        self.game.state = [
+            ["x", "o", "x"],
+            ["x", "o", "x"],
+            ["o", "x", "o"]
+        ]
+        assert self.game._get_winner() == 'x'
 
         # X wins horizontally
         self.game.state = [
