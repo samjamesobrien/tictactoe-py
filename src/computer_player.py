@@ -43,6 +43,7 @@ class ComputerPlayer:
     def _get_blocking_move(self, game: Game):
         """
         Return a move that blocks the other player from winning.
+        :return: x & y coordinates that represent a blocking move, else None, None
         """
         next_player = game.next_player
 
@@ -53,6 +54,7 @@ class ComputerPlayer:
     def _get_winning_move(self, game: Game):
         """
         Return a move that wins the game.
+        :return: x & y coordinates that represent a winning move, else None, None
         """
         next_player = game.next_player
 
