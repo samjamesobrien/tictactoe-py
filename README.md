@@ -18,3 +18,9 @@ We have a [ComputerPlayer](/src/computer_player.py) and associated [ComputerPlay
 1. Implement the `_get_blocking_move` method
 2. Implement the `_get_winning_move` method
 3. How would you improve the `play` method?
+
+## 3. Optional: Implement a CLI reader to play the game
+
+We have a [tictactoe.py](/tictactoe.py) file.
+
+1. Implement a CLI reader that allows a human player to play against the computer.

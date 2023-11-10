@@ -57,7 +57,7 @@ class Game:
         """
         There are 8 possible lines through the board, 3 horizontal, 3 vertical & 2 diagonal.
         Any of those 8 may win a game.
-        :return all possible permutations of strings through the game board.
+        :return all possible lists of strings through the game board.
         """
         all_possible_lines: List[List[str]] = []
 
