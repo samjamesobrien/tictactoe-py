@@ -14,13 +14,13 @@ class ComputerPlayerTest(unittest.TestCase):
         self.computer_player = ComputerPlayer()
 
     def test_get_first_available_move(self):
-        # Top left
-        assert ComputerPlayer._get_first_available_move(self.game) == (0, 0)
+        # Center tile preferred
+        assert ComputerPlayer._get_first_available_move(self.game) == (1, 1)
 
         # 0, 1
         self.game.state = [
             ['x', 'o', 'x'],
-            ['', '', 'o'],
+            ['', 'o', 'o'],
             ['x', '', '']
         ]
         assert ComputerPlayer._get_first_available_move(self.game) == (0, 1)

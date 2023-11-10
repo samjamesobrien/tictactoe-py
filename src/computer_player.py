@@ -34,6 +34,11 @@ class ComputerPlayer:
         """
         Return any move available to the player in the format X, Y
         """
+        # Prefer the center tile if available
+        if game.state[1][1] == '':
+            return 1, 1
+
+        # Find any other tile if available
         for x in range(0, 2):
             for y in range(0, 2):
                 if game.state[y][x] == "":
