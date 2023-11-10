@@ -39,7 +39,7 @@ class Game:
     def _get_winner(self) -> Optional[str]:
         """
         Evaluate the game state and return a winner, if any.
-        :return: 'x', 'y' or 'draw' if no possible plays remain, otherwise None.
+        :return: 'x', 'o' or 'draw' if no possible plays remain, otherwise None.
         """
         all_possible_lines = self._get_all_possible_lines()
 
