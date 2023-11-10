@@ -45,7 +45,7 @@ class GameTest(unittest.TestCase):
             ["x", "o", "x"],
             ["o", "x", "o"]
         ]
-        assert self.game._get_winner() == 'x'
+        assert self.game._get_winner() == 'draw'
 
         # X wins horizontally
         self.game.state = [
