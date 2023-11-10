@@ -91,6 +91,14 @@ class ComputerPlayerTest(unittest.TestCase):
         ]
         assert self.computer_player._get_winning_move(self.game) == (1, 1)
 
+        # X in 1,2 wins
+        self.game.state = [
+            ['o', '', 'o'],
+            ['x', '', 'o'],
+            ['x', '', 'x']
+        ]
+        assert self.computer_player._get_winning_move(self.game) == (1, 2)
+
     def test_get_winning_move_in_column(self):
         # No blocking move
         assert self.computer_player._get_blocking_move(self.game) == (None, None)
@@ -102,6 +110,14 @@ class ComputerPlayerTest(unittest.TestCase):
             ['', '', '']
         ]
         assert self.computer_player._get_winning_move(self.game) == (0, 2)
+
+        # X in 1,0 wins
+        self.game.state = [
+            ['', '', 'o'],
+            ['x', 'x', 'o'],
+            ['o', 'x', '']
+        ]
+        assert self.computer_player._get_winning_move(self.game) == (1, 0)
 
     def test_get_winning_move_in_diagonal(self):
         # No blocking move
