@@ -4,6 +4,14 @@ Use the tests to implement the empty methods.
 
 PyCharm works well with this repo and allows break-pointing.
 
+## 0. Set up the pipenv environment
+
+Call `bash install.sh` to install our pipenv project.
+
+Call `test.sh` to run the tests.
+
+Ideally, run the tests through your IDE with breakpoints.
+
 ## 1. Implement the Game class
 
 We have a [Game](src/game.py) and associated [GameTest](tests/game_test.py).
