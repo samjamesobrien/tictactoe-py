@@ -1,3 +1,3 @@
 #!/bin/bash -e
 
-pipenv run pytest -s -v
+python -m unittest discover -s tests
