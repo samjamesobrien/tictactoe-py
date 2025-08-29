@@ -14,14 +14,14 @@ Ideally, run the tests through your IDE with breakpoints.
 
 ## 1. Implement the Game class
 
-We have a [Game](src/game.py) and associated [GameTest](tests/game_test.py).
+We have a [Game](src/game.py) and associated [GameTest](tests/test_game.py).
 
 1. Implement the `_get_all_possible_lines` method
 2. We can now implement the `_get_winner` method
 
 ## 2. Implement the ComputerPlayer class
 
-We have a [ComputerPlayer](src/computer_player.py) and associated [ComputerPlayerTest](tests/computer_player_test.py).
+We have a [ComputerPlayer](src/computer_player.py) and associated [ComputerPlayerTest](tests/test_computer_player.py).
 
 1. Implement the `_get_blocking_move` method
 2. Implement the `_get_winning_move` method

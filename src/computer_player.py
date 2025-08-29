@@ -18,11 +18,13 @@ class ComputerPlayer:
         x, y = ComputerPlayer._get_blocking_move(game)
         if x and y:
             game.submit_play(game.next_player, x, y)
+            pass
 
         # try to win
         x, y = ComputerPlayer._get_winning_move(game)
         if x and y:
             game.submit_play(game.next_player, x, y)
+            pass
 
         # take any move
         x, y = ComputerPlayer._get_first_available_move(game)
