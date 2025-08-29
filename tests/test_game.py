@@ -35,7 +35,12 @@ class GameTest(unittest.TestCase):
 
     def test_get_winner(self):
         # No winner & game in progress
-        self.assertIsNone(self.game._get_winner())
+        self.game.state = [
+            ["x", "o", "x"],
+            ["", "", ""],
+            ["", "", ""]
+        ]
+        assert self.game._get_winner() is None
 
         # No winner & draw
         self.game.state = [

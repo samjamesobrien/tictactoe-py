@@ -53,6 +53,7 @@ class ComputerPlayer:
         next_player = game.next_player
 
         # TODO - is there a move where we can block the other player?
+        # hint - Could we use the _get_all_possible_lines method? Do we need to refactor it a little?
 
         return None, None
 
@@ -64,5 +65,6 @@ class ComputerPlayer:
         next_player = game.next_player
 
         # TODO - is there a move where we can win?
+        # hint - Could we use the _get_all_possible_lines method? Do we need to refactor it a little?
 
         return None, None
